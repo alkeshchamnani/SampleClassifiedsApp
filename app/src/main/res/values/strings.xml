@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SampleClassifiedsApp</string>
+
+
+    <!--SplashActivity!-->
+
+    <string name="activity_splash_title">Splash Activity</string>
+
 </resources>
