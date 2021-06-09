@@ -3,7 +3,22 @@
 
 
     <!--SplashActivity!-->
-
     <string name="activity_splash_title">Splash Activity</string>
+
+    <!--DashboardActivity!-->
+    <string name="activity_dashboard_title">Dashboard</string>
+
+    <!--AdvertisementDetailActivity!-->
+    <string name="activity_advertisement_detail_title">Detail</string>
+    <string name="activity_advertisement_posted_date">Posted Date :</string>
+    <string name="activity_advertisement_id">ID</string>
+    <string name="activity_advertisement_name">Name</string>
+    <string name="activity_advertisement_description">Description</string>
+    <string name="activity_advertisement_price">Price</string>
+    <string name="activity_advertisement_description_dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s</string>
+
+
+    <!--LoadingDialog!-->
+    <string name="dialog_loading_please_wait">Please Wait</string>
 
 </resources>

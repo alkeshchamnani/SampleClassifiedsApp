@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FEC828</color>
+    <color name="colorPrimary">#B80007</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#747474</color>
+    <color name="colorAccent">#B80007</color>
+    <color name="transparent">@android:color/transparent</color>
+
+
+
     <color name="layoutBackgroundColor1">#FFFFFF</color>
-    <color name="layoutBackgroundColor2">#F6F6F6</color>
-    <color name="layoutBackgroundColor3">#E1E1E3</color>
+    <color name="layoutBackgroundColor2">#F3F3F3</color>
 
-    <color name="layoutBackgroundColor4">@android:color/darker_gray</color>
 
-    <color name="layoutRippleEffect1">#FEC828</color>
-    <color name="layoutRippleEffect2">#E1E1E3</color>
-    <color name="layoutDialogBackgroundColor">#B3BABABA</color>
+
+    <color name="textViewColor1">@android:color/black</color>
+    <color name="textViewColor2">@android:color/white</color>
+    <color name="textViewColor3">#747474</color>
+    <color name="textViewColor4">#B80007</color>
 </resources>

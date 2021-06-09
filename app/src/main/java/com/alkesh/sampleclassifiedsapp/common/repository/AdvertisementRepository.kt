@@ -9,16 +9,25 @@ class AdvertisementRepository(
     private val advertisementService: AdvertisementService
 ) : BaseRepository() {
 
+
     suspend fun getAdvertisements(): GetAdvertisementApiResponse? {
         var model: GetAdvertisementApiResponse? = null
         try {
             val response = advertisementService.getAdvertisements()
             if (response.isSuccessful) {
                 model = response.body()
+                model?.let {
+                    it.successful = true
+                }
             }
         } catch (exp: Exception) {
+            model = GetAdvertisementApiResponse()
+            model.let {
+                it.successful = false
+                it.message = exp.message
+            }
+
         }
         return model
     }
-
 }
