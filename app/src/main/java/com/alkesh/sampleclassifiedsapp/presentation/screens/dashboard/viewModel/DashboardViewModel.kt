@@ -11,6 +11,9 @@ class DashboardViewModel(private val advertisementRepository: AdvertisementRepos
     BaseViewModel() {
     val listAdvertisements = MutableLiveData<ArrayList<AdvertisementModel>>()
 
+    init {
+        getListAdvertisements()
+    }
     fun getListAdvertisements() {
         isLoading.value = true
         showMessage.value = null

@@ -15,11 +15,8 @@ class AdvertisementDetailActivity : AppBaseActivity() {
     private lateinit var viewModel: AdvertisementDetailViewModel
     override fun init() {
         toolbar.setup(this, getString(R.string.activity_advertisement_detail_title), true)
-        viewModel = getViewModel<AdvertisementDetailViewModel>()
-        val model = readDataFromBundle()
-        model?.let {
-            populateAdvertisementModel(it)
-        }
+        viewModel = getViewModel()
+
     }
 
     override fun setEvents() {
@@ -33,45 +30,46 @@ class AdvertisementDetailActivity : AppBaseActivity() {
             }
         })
         viewModel.isLoading.observe(this, Observer {
-
+            if (it) {
+                showLoadingDialog()
+            } else {
+                hideLoadingDialog()
+            }
+        })
+        viewModel.advertisementModel.observe(this, Observer {
+            it?.let {
+                populateAdvertisementModel(it)
+            }
+        })
+        viewModel.readDataFromBundle.observe(this, Observer {
+            if (it) {
+                readDataFromBundle()
+            }
         })
     }
 
-    override fun getLayoutResId(): Int {
-        return R.layout.activity_advertisement_detail
-    }
+    override fun getLayoutResId() = R.layout.activity_advertisement_detail
 
     private fun populateAdvertisementModel(model: AdvertisementModel) {
-        model.imageUrls?.let {
-            val list = it
-            if (list.size > 0) {
-                val image = list[0]
-                ImageUtil.loadImage(ivBanner.context, ivBanner, image)
-
+        model.apply {
+            tvID.text = uid ?: ""
+            tvName.text = name ?: ""
+            tvDate.text = date ?: ""
+            tvPrice.text = price ?: ""
+            imageUrls?.let {
+                val list = it
+                if (list.size > 0) {
+                    val image = list[0]
+                    ImageUtil.loadImage(ivBanner.context, ivBanner, image)
+                }
             }
         }
-        model.uid?.let {
-            tvID.text = it
-        }
-        model.name?.let {
-            tvName.text = it
-        }
-        model.date?.let {
-            tvDate.text = it
-        }
-        model.price?.let {
-            tvPrice.text = it
-        }
-
-
     }
 
-    private fun readDataFromBundle(): AdvertisementModel? {
-        var model: AdvertisementModel? = null
+    private fun readDataFromBundle() {
         val ob = intent.getSerializableExtra(AdvertisementDetailConstant.Bundle_Advertisement_Model)
         if (ob is AdvertisementModel) {
-            model = ob
+            viewModel.setAdvertisementDetailModel(ob)
         }
-        return model
     }
 }

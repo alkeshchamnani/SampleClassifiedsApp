@@ -18,9 +18,7 @@ class DashboardActivity : AppBaseActivity() {
     private lateinit var viewModel: DashboardViewModel
     override fun init() {
         toolbar.setup(this, getString(R.string.activity_dashboard_title), false)
-
-        viewModel = getViewModel<DashboardViewModel>()
-        viewModel.getListAdvertisements()
+        viewModel = getViewModel()
     }
 
     override fun setEvents() {
@@ -41,7 +39,6 @@ class DashboardActivity : AppBaseActivity() {
                     hideLoadingDialog()
                 }
             }
-
         })
         viewModel.listAdvertisements.observe(this, Observer {
             it?.let {
@@ -50,9 +47,7 @@ class DashboardActivity : AppBaseActivity() {
         })
     }
 
-    override fun getLayoutResId(): Int {
-        return R.layout.activity_dashboard
-    }
+    override fun getLayoutResId() = R.layout.activity_dashboard
 
     private fun populateList(list: ArrayList<AdvertisementModel>) {
         val adapter = ListAdvertisementAdapter(this, list, onAdvertisementModel)
@@ -65,6 +60,7 @@ class DashboardActivity : AppBaseActivity() {
             val intent = Intent(this@DashboardActivity, AdvertisementDetailActivity::class.java)
             intent.putExtra(AdvertisementDetailConstant.Bundle_Advertisement_Model, model)
             startAnotherActivity(intent)
+
         }
 
     }

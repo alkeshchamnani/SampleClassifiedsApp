@@ -19,7 +19,7 @@ public class ImageUtil {
         cd.start();
 
         RequestOptions options = new RequestOptions()
-                .fitCenter()
+                .centerCrop()
                 .placeholder(cd)
                 .error(R.drawable.ic_error_image);
         Glide.with(context).load(imageURL).apply(options).into(imageView);
