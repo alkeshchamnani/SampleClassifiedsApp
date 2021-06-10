@@ -6,6 +6,7 @@ Kotlin programming language was used for the development
 The MVVM architecture desgin patter was used for the development
 Android's Architecture Components components were used to to acheive MVVM e.g LiveData, AndroidViewModel
 Kotlins Coroutines were used asynchronous programming
+Koin is for Injecting Repositories into viewModel
 Retrofit was used for Networking along with OkHttp
 
 # Task Related
