@@ -5,7 +5,7 @@ import com.alkesh.sampleclassifiedsapp.common.models.response.GetAdvertisementAp
 import com.alkesh.sampleclassifiedsapp.core.network.services.AdvertisementService
 
 
-class AdvertisementRepository(
+open class AdvertisementRepository(
     private val advertisementService: AdvertisementService
 ) : BaseRepository() {
 
